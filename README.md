@@ -282,12 +282,6 @@ When adding a new drink, update `lib/data/menu-data.ts` so the menu and order bu
 
 ---
 
-## 📄 License
-
-No license file has been added to the repository yet. Until a license is provided, all rights are reserved by the repository owner.
-
----
-
 <div align="center">
 
 **Crafted with 🧋 and motion in Halifax, Nova Scotia**
