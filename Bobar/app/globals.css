@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-cream: #f5f0d0;
+  --color-brown: #3b2314;
+  --color-purple: #8b5ccc;
+  --color-pink: #f4a4c0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-nunito), 'Nunito', sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-brown);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* GSAP will control opacity/transform — keep these at 0 until JS runs */
+.gsap-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 35, 20, 0.2);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 35, 20, 0.35);
+}
+
+/* Input/textarea base */
+input,
+textarea,
+button {
+  font-family: var(--font-nunito), 'Nunito', sans-serif;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+/* Page transition wrapper */
+.page-wrapper {
+  will-change: opacity, transform;
+}
+
+/* Glass card utility */
+@layer components {
+  .glass-card {
+    @apply bg-white/85 backdrop-blur-md rounded-4xl border border-white/90 shadow-card;
+  }
+
+  .pill-btn {
+    @apply rounded-full font-extrabold transition-all duration-200 cursor-pointer;
+  }
+
+  .pill-btn-primary {
+    @apply pill-btn bg-[#3b2314] text-[#f5f0d0] hover:-translate-y-0.5 hover:shadow-lg;
+  }
+
+  .pill-btn-purple {
+    @apply pill-btn bg-[#8b5ccc] text-white hover:-translate-y-0.5 hover:shadow-lg;
+  }
+
+  .pill-btn-outline {
+    @apply pill-btn bg-transparent border-2 border-[#3b2314] text-[#3b2314];
+  }
+}
+
+/* Particle animations */
+@keyframes particleFloat0 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(12px, -20px); }
+}
+@keyframes particleFloat1 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-16px, -14px); }
+}
+@keyframes particleFloat2 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(8px, -28px); }
+}
+@keyframes particleFloat3 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-10px, -18px); }
+}
+
+/* Map pulse */
+@keyframes mapPulse {
+  0%, 100% { r: 22; opacity: 0.15; }
+  50% { r: 34; opacity: 0; }
+}
+
+/* Confetti fall */
+@keyframes confettiFall {
+  0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
